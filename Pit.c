@@ -2,7 +2,6 @@
 #include "Uart.h"
 
 uint32_t timer_value;
-int flag;
 
 void PIT_Init(void)
 {	
@@ -21,15 +20,12 @@ void PIT_Init(void)
 	NVIC_ClearPendingIRQ(PIT_IRQn);
 	NVIC_SetPriority(PIT_IRQn,5);
 	NVIC_EnableIRQ(PIT_IRQn);
-	
-	flag = 0;
 }
 
 void PIT_IRQHandler(void)
 {	
 	if(PIT->CHANNEL[0].TFLG & PIT_TFLG_TIF_MASK) {
 		timer_value++;
-		flag = 1;
 		PIT->CHANNEL[0].TFLG &= PIT_TFLG_TIF_MASK;
 	}
 }

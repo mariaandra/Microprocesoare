@@ -1,17 +1,9 @@
-from tkinter import *
+from PyQt6.QtWidgets import QApplication, QWidget
+import sys
 
-window = Tk()
-window.title('VibrationBuzzerLed')
+app = QApplication(sys.argv)
 
-window.geometry("400x200")
-window.minsize(400, 200)
-window.maxsize(400, 200)
+window = QWidget()
 
-label = Label(window, text='COM')
-insert = Entry(window)
-label.grid(row=0, column=0)
-insert.grid(row=0, column=1)
-label.place(relx = 0.25,rely = 0.5,anchor='center')
-insert.place(relx = 0.5,rely = 0.5,anchor='center')
-
-window.mainloop()
+window.show()
+sys.exit(app.exec())

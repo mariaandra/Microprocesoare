@@ -410,14 +410,14 @@
               <FilePath>.\Uart.h</FilePath>
             </File>
             <File>
-              <FileName>adc.c</FileName>
+              <FileName>Adc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\adc.c</FilePath>
+              <FilePath>.\Adc.c</FilePath>
             </File>
             <File>
-              <FileName>adc.h</FileName>
+              <FileName>Adc.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\adc.h</FilePath>
+              <FilePath>.\Adc.h</FilePath>
             </File>
             <File>
               <FileName>Pit.c</FileName>

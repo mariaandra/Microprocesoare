@@ -22,11 +22,29 @@ Dialog DLL:      TARMCM1.DLL V1.14.6.0
  
 <h2>Project:</h2>
 D:\Anul 4\Microprocesoare\Proiect\VibrationBuzzerLed.uvprojx
-Project File Date:  11/19/2022
+Project File Date:  11/23/2022
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.18', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Rebuild target 'Target 1'
+main.c(11): warning: no previous prototype for function 'UTILS_Print' [-Wmissing-prototypes]
+void UTILS_Print(float value)
+     ^
+main.c(11): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void UTILS_Print(float value)
+^
+static 
+main.c(59): warning: implicit conversion increases floating-point precision: 'volatile float' to 'double' [-Wdouble-promotion]
+                if(measured_voltage > 0.4) {
+                   ^~~~~~~~~~~~~~~~ ~
+main.c(67): warning: no newline at end of file [-Wnewline-eof]
+}
+ ^
+main.c(44): warning: mixing declarations and code is a C99 extension [-Wdeclaration-after-statement]
+        uint32_t aux_timer;
+                 ^
+4 warnings generated.
+compiling main.c...
 Uart.c(8): warning: while loop has empty body [-Wempty-body]
         while(!(UART0->S1 & UART0_S1_TDRE_MASK));
                                                 ^
@@ -53,8 +71,7 @@ int status;
 5 warnings generated.
 compiling Uart.c...
 compiling gpio.c...
-compiling adc.c...
-Pit.c(35): warning: no newline at end of file [-Wnewline-eof]
+Pit.c(31): warning: no newline at end of file [-Wnewline-eof]
 }
  ^
 Pit.c(4): warning: no previous extern declaration for non-static variable 'timer_value' [-Wmissing-variable-declarations]
@@ -63,40 +80,36 @@ uint32_t timer_value;
 Pit.c(4): note: declare 'static' if the variable is not intended to be used outside of this translation unit
 uint32_t timer_value;
 ^
-Pit.c(5): warning: no previous extern declaration for non-static variable 'flag' [-Wmissing-variable-declarations]
-int flag;
-    ^
-Pit.c(5): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-int flag;
-^
-3 warnings generated.
+2 warnings generated.
 compiling Pit.c...
-main.c(10): warning: no previous prototype for function 'UTILS_Print' [-Wmissing-prototypes]
-void UTILS_Print(uint32_t value)
-     ^
-main.c(10): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void UTILS_Print(uint32_t value)
-^
-static 
-main.c(69): warning: no newline at end of file [-Wnewline-eof]
-}
- ^
-main.c(37): warning: mixing declarations and code is a C99 extension [-Wdeclaration-after-statement]
-        uint32_t val_A0, val_Temp, val_Vref;
-                 ^
-main.c(37): warning: unused variable 'val_Temp' [-Wunused-variable]
-        uint32_t val_A0, val_Temp, val_Vref;
+Adc.c(4): warning: // comments are not allowed in this language [-Wcomment]
+#define ADC_CHANNEL (11) // PORT C PIN 2
                          ^
-main.c(37): warning: unused variable 'val_Vref' [-Wunused-variable]
-        uint32_t val_A0, val_Temp, val_Vref;
-                                   ^
+Adc.c(73): warning: mixing declarations and code is a C99 extension [-Wdeclaration-after-statement]
+        uint16_t calibration_var = 0x0000;
+                 ^
+Adc.c(139): warning: mixing declarations and code is a C99 extension [-Wdeclaration-after-statement]
+        uint8_t parte_zecimala = (uint8_t) measured_voltage;
+                ^
+Adc.c(6): warning: no previous extern declaration for non-static variable 'measured_voltage' [-Wmissing-variable-declarations]
+float measured_voltage;
+      ^
+Adc.c(6): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+float measured_voltage;
+^
+Adc.c(7): warning: no previous extern declaration for non-static variable 'analog_input' [-Wmissing-variable-declarations]
+uint16_t analog_input;
+         ^
+Adc.c(7): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+uint16_t analog_input;
+^
 5 warnings generated.
-compiling main.c...
+compiling Adc.c...
 compiling system_MKL25Z4.c...
 assembling startup_MKL25Z4.s...
 linking...
-Program Size: Code=2652 RO-data=208 RW-data=0 ZI-data=368  
-".\Objects\VibrationBuzzerLed.axf" - 0 Error(s), 13 Warning(s).
+Program Size: Code=4416 RO-data=272 RW-data=0 ZI-data=368  
+".\Objects\VibrationBuzzerLed.axf" - 0 Error(s), 16 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -123,10 +136,10 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:5.6.0
 
    * Component: Keil::Device:Startup:2.5.0
-      Source file:   Device/Source/ARM/startup_MKL25Z4.s
-      Include file:  Device/Source/system_MKL25Z4.h
       Source file:   Device/Source/system_MKL25Z4.c
-Build Time Elapsed:  00:00:00
+      Include file:  Device/Source/system_MKL25Z4.h
+      Source file:   Device/Source/ARM/startup_MKL25Z4.s
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>
